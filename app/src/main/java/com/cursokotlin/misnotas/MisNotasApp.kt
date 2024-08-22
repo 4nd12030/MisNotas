@@ -1,7 +1,7 @@
 package com.cursokotlin.misnotas
 
 import android.app.Application
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import com.cursokotlin.misnotas.bd.TaskDatabase
 
 //con : Application() Le indicamos a Andorind que esta clase debe instanciarse al inicio de la aplicacion

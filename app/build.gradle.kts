@@ -1,6 +1,9 @@
+
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -39,6 +42,9 @@ android {
     }
 }
 
+val roomVersion= "2.6.1"
+
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.13.1")
@@ -52,12 +58,16 @@ dependencies {
 
     //implementation("com.android.support:design:26.1.0")
     //implementation("com.android.support:recyclerview-v7:26.1.0")
-    implementation("org.jetbrains.anko:anko-common:0.9")
+    //implementation("org.jetbrains.anko:anko-common:0.9")
+
 
     //Room
-    implementation("android.arch.persistence.room:runtime:1.1.1")
-    annotationProcessor("android.arch.persistence.room:compiler:1.1.1")
-//kapt("android.arch.persistence.room:compiler:1.1.1")
+
+    implementation("androidx.room:room-runtime:$roomVersion")
+    // To use Kotlin Symbol Processing (KSP)
+    ksp("androidx.room:room-compiler:$roomVersion")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
 
 }

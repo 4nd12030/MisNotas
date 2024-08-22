@@ -1,7 +1,8 @@
 package com.cursokotlin.misnotas.interfaz
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Query
+
+import androidx.room.Dao
+import androidx.room.Query
 import com.cursokotlin.misnotas.modelo.TaskEntity
 
 //Esta interfaz contendra las consultas de la bd
@@ -9,6 +10,6 @@ import com.cursokotlin.misnotas.modelo.TaskEntity
 
 @Dao
 interface TaskDao {
-    @Query("SELECT * FROM taskentity")
+    @Query("SELECT * FROM task_entity")
     fun getAllTasks() : MutableList<TaskEntity>
 }

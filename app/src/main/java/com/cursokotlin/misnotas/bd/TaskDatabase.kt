@@ -1,7 +1,8 @@
 package com.cursokotlin.misnotas.bd
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.RoomDatabase
+
+import androidx.room.Database
+import androidx.room.RoomDatabase
 import com.cursokotlin.misnotas.interfaz.TaskDao
 import com.cursokotlin.misnotas.modelo.TaskEntity
 
