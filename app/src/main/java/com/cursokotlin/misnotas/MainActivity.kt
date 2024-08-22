@@ -63,16 +63,17 @@ class MainActivity : AppCompatActivity() {
         etTask.setText("")
     }
 
-    private fun hideKeyBoard(){
-        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    private fun hideKeyBoard() {
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
     }
 
-    private fun getTask() = runBlocking{
+    private fun getTask() = runBlocking {
         launch {
             tasks = MisNotasApp.database.taskDao().getAllTasks()
 
-            runOnUiThread{
+            runOnUiThread {
                 setUpRecyclerView(tasks)
             }
         }
@@ -82,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         adapter = TaskAdapter(
             tasks,
             { task -> updateTask(task) },
-            { task -> deleteTask(task)})
+            { task -> deleteTask(task) })
 
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -90,14 +91,14 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun updateTask(task: TaskEntity) = runBlocking{
+    private fun updateTask(task: TaskEntity) = runBlocking {
         launch {
             task.isDone = !task.isDone
             MisNotasApp.database.taskDao().updateTask(task)
         }
     }
 
-    private fun deleteTask(task: TaskEntity)= runBlocking{
+    private fun deleteTask(task: TaskEntity) = runBlocking {
         launch {
             val position = tasks.indexOf(task)
             MisNotasApp.database.taskDao().deleteTask(task)
@@ -108,5 +109,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
     }
+
+}
