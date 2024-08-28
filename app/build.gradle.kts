@@ -63,10 +63,12 @@ dependencies {
 
     //Room
 
+    implementation("androidx.room:room-ktx:$roomVersion")
     implementation("androidx.room:room-runtime:$roomVersion")
     // To use Kotlin Symbol Processing (KSP)
     ksp("androidx.room:room-compiler:$roomVersion")
 
+    //corrutinas en activity
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
 

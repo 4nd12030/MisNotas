@@ -15,18 +15,18 @@ import com.cursokotlin.misnotas.modelo.TaskEntity
 @Dao
 interface TaskDao {
     @Query("SELECT * FROM task_entity")
-    fun getAllTasks() : MutableList<TaskEntity>
+    suspend fun getAllTasks() : MutableList<TaskEntity>
 
     @Insert
     fun addTask(taskEntity: TaskEntity) : Long
 
     @Query("SELECT * FROM task_entity WHERE id LIKE  :id")
-    fun getTaskById(id: Long): TaskEntity
+    suspend fun getTaskById(id: Long): TaskEntity
 
     @Update
-    fun updateTask(taskEntity: TaskEntity): Int
+    suspend fun updateTask(taskEntity: TaskEntity): Int
 
     @Delete
-    fun deleteTask(taskEntity: TaskEntity): Int
+    suspend fun deleteTask(taskEntity: TaskEntity): Int
 
 }
